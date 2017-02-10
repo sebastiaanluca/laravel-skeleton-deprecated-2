@@ -2,10 +2,19 @@
 
 namespace App\Http;
 
-use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use SebastiaanLuca\Router\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
 {
+    /**
+     * The routers to automatically map.
+     *
+     * @var array
+     */
+    protected $routers = [
+        //
+    ];
+
     /**
      * The application's global HTTP middleware stack.
      *

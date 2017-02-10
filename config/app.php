@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Laravel',
+    'name' => 'laravel-skeleton',
 
     /*
     |--------------------------------------------------------------------------
@@ -164,18 +164,39 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
-         * Package Service Providers...
+         * Packages
          */
+
         Laravel\Tinker\TinkerServiceProvider::class,
+        GrahamCampbell\Exceptions\ExceptionsServiceProvider::class,
+        Nwidart\Modules\LaravelModulesServiceProvider::class,
+        SebastiaanLuca\Router\RouterServiceProvider::class,
+        SebastiaanLuca\ConditionalProviders\Providers\EnvironmentProvidersServiceProvider::class,
+        SebastiaanLuca\Helpers\Methods\GlobalMethodsServiceProvider::class,
+        SebastiaanLuca\Helpers\Collections\CollectionHelperServiceProvider::class,
+        SebastiaanLuca\Helpers\Html\HtmlServiceProvider::class,
 
         /*
-         * Application Service Providers...
+         * Modules
          */
+
+        //
+
+        /*
+         * Application
+         */
+
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
+        //  App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+
+    ],
+
+    'local_providers' => [
+
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 
@@ -225,6 +246,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 

@@ -47,7 +47,7 @@ return [
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8mb4',
-            'collation' => 'utf8mb4_unicode_ci',
+            'collation' => 'utf8mb4_unicode_520_ci',
             'prefix' => '',
             'strict' => true,
             'engine' => null,
@@ -79,7 +79,7 @@ return [
     |
     */
 
-    'migrations' => 'migrations',
+    'migrations' => '_migrations',
 
     /*
     |--------------------------------------------------------------------------
@@ -101,6 +101,13 @@ return [
             'password' => env('REDIS_PASSWORD', null),
             'port' => env('REDIS_PORT', 6379),
             'database' => 0,
+        ],
+
+        'sessions' => [
+            'host' => env('REDIS_HOST', '127.0.0.1'),
+            'password' => env('REDIS_PASSWORD', null),
+            'port' => env('REDIS_PORT', 6379),
+            'database' => 1,
         ],
 
     ],
