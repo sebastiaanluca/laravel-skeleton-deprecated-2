@@ -13,6 +13,7 @@
         "php": ">=7.1",
         "doctrine/dbal": "^2.5",
         "graham-campbell/exceptions": "^9.3",
+        "guzzlehttp/guzzle": "^6.2",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1",
         "laravelcollective/html": "^5.4",
