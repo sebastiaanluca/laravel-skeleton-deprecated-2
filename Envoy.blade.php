@@ -163,8 +163,6 @@ find {{ $newReleaseDirectory }} -type f -exec sudo chown deploy:www-data {} \;
 
 find {{ $newReleaseDirectory }} -type d -exec sudo chmod 775 {} \;
 find {{ $newReleaseDirectory }} -type f -exec sudo chmod 664 {} \;
-
-sudo chmod u=rwx,g=rwx,o=rx {{ $newReleaseDirectory }}/scripts/deluge-download-completed.sh
 {{ logCompletedTask('Default permissions set') }}
 @endtask
 
