@@ -198,6 +198,7 @@ return [
 
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        GuzzleHttp\Profiling\Debugbar\Support\Laravel\ServiceProvider::class,
 
     ],
 
