@@ -48,10 +48,15 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'local-backups' => [
+            'driver' => 'local',
+            'root' => storage_path('app/backups'),
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
         ],
 
@@ -61,6 +66,12 @@ return [
             'secret' => env('AWS_SECRET'),
             'region' => env('AWS_REGION'),
             'bucket' => env('AWS_BUCKET'),
+        ],
+
+        'dropbox' => [
+            'driver' => 'dropbox',
+            'access_token' => env('DROPBOX_ACCESS_TOKEN'),
+            'app_secret' => env('DROPBOX_APP_SECRET'),
         ],
 
     ],

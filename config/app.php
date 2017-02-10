@@ -169,6 +169,7 @@ return [
 
         Laravel\Tinker\TinkerServiceProvider::class,
         GrahamCampbell\Exceptions\ExceptionsServiceProvider::class,
+        Spatie\Backup\BackupServiceProvider::class,
         Nwidart\Modules\LaravelModulesServiceProvider::class,
         SebastiaanLuca\Router\RouterServiceProvider::class,
         SebastiaanLuca\ConditionalProviders\Providers\EnvironmentProvidersServiceProvider::class,

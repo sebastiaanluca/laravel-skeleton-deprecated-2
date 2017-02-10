@@ -23,7 +23,8 @@
         "sebastiaanluca/laravel-helpers": "0.*",
         "sebastiaanluca/laravel-router": "^2.1",
         "sebastiaanluca/laravel-unbreakable-migrations": "^0.1",
-        "sebastiaanluca/laravel-validator": "^0.1"
+        "sebastiaanluca/laravel-validator": "^0.1",
+        "spatie/laravel-backup": "^4.4"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^2.3",
