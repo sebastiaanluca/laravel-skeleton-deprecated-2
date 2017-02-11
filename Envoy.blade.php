@@ -106,17 +106,17 @@ mkdir -p {{ $storageDirectory }}/logs
 @task('update permissions', ['on' => 'remote'])
 {{ logTaskStart('Updating directories and files ownership and permissions…') }}
 
-find {{ $baseDirectory }} -type d -maxdepth 1 -exec sudo chmod 775 {} \;
+find {{ $baseDirectory }} -maxdepth 1 -exec sudo chown deploy:www-data {} \;
+find {{ $baseDirectory }} -type d -maxdepth 1 -exec sudo chmod 2775 {} \;
 find {{ $baseDirectory }} -type f -maxdepth 1 -exec sudo chmod 664 {} \;
 
-find {{ $storageDirectory }} -type d -exec sudo chmod 777 {} \;
-find {{ $storageDirectory }} -type f -exec sudo chmod 666 {} \;
-
-find {{ $storageDirectory }} -type d -exec sudo chown www-data:www-data {} \;
-find {{ $storageDirectory }} -type f -exec sudo chown www-data:www-data {} \;
-
-find {{ $releasesDirectory }} -type d -maxdepth 1 -exec sudo chmod 775 {} \;
+find {{ $releasesDirectory }} -maxdepth 1 -exec sudo chown deploy:www-data {} \;
+find {{ $releasesDirectory }} -type d -maxdepth 1 -exec sudo chmod 2775 {} \;
 find {{ $releasesDirectory }} -type f -maxdepth 1 -exec sudo chmod 664 {} \;
+
+find {{ $storageDirectory }} -exec sudo chown deploy:www-data {} \;
+find {{ $storageDirectory }} -type d -exec sudo chmod 2777 {} \;
+find {{ $storageDirectory }} -type f -exec sudo chmod 666 {} \;
 
 {{ logCompletedTask('Permissions set') }}
 @endtask
@@ -158,10 +158,8 @@ ln -nfs {{ $baseDirectory }}/.env {{ $newReleaseDirectory }}/.env
 
 @task('set release permissions', ['on' => 'remote'])
 {{ logTaskStart('Setting default directory and file permissions…') }}
-find {{ $newReleaseDirectory }} -type d -exec sudo chown deploy:www-data {} \;
-find {{ $newReleaseDirectory }} -type f -exec sudo chown deploy:www-data {} \;
-
-find {{ $newReleaseDirectory }} -type d -exec sudo chmod 775 {} \;
+find {{ $newReleaseDirectory }} -exec sudo chown deploy:www-data {} \;
+find {{ $newReleaseDirectory }} -type d -exec sudo chmod 2775 {} \;
 find {{ $newReleaseDirectory }} -type f -exec sudo chmod 664 {} \;
 {{ logCompletedTask('Default permissions set') }}
 @endtask
