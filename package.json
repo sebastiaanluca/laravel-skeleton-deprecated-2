@@ -50,6 +50,7 @@
         "yarn-update": "^0.1.0"
     },
     "scripts": {
+        "init-vm": "vagrant up && vagrant reload && vagrant ssh",
         "vm": "vagrant up && vagrant ssh",
         "mailhog": "open http://localhost:8025/",
         "lockfile": "composer update nothing",

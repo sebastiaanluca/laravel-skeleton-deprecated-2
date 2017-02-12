@@ -8,7 +8,3 @@ cd /vagrant
 
 bash /vagrant/scripts/vm/setup.sh
 bash /vagrant/scripts/vm/extras.sh
-
-echo "> Rebooting server. Please wait."
-
-sudo reboot
