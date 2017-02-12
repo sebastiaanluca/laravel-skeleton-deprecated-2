@@ -1,6 +1,6 @@
 ---
 name: laravel-skeleton
-hostname: laravel-skeleton
+hostname: skeleton.laravel.dev
 provider: virtualbox
 mariadb: true
 memory: 4096
