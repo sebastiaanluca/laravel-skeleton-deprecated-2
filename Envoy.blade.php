@@ -71,6 +71,7 @@ build front-end assets
 migrate database
 activate release
 clear cache
+cache config
 restart queue
 clean up old releases
 display completed message
@@ -187,8 +188,6 @@ cd {{ $newReleaseDirectory }}
 php artisan clear-compiled >>{{ $log }} 2>&1
 composer dumpautoload -o >>{{ $log }} 2>&1
 php artisan optimize >>{{ $log }} 2>&1
-php artisan config:cache >>{{ $log }} 2>&1
-php artisan route:cache >>{{ $log }} 2>&1
 {{ logCompletedTask('Project optimized') }}
 @endtask
 
@@ -230,6 +229,15 @@ php artisan view:clear >>{{ $log }} 2>&1
 #sudo service php7.1-fpm reload >>{{ $log }} 2>&1
 #sudo service nginx reload >>{{ $log }} 2>&1
 {{ logCompletedTask('Cache cleared') }}
+@endtask
+
+@task('cache config', ['on' => 'remote'])
+{{ logTaskStart('Cache configuration and routes…') }}
+cd {{ $currentDirectory }}
+
+php artisan config:cache >>{{ $log }} 2>&1
+php artisan route:cache >>{{ $log }} 2>&1
+{{ logCompletedTask('Configuration and routes cached') }}
 @endtask
 
 @task('restart queue', ['on' => 'remote'])
