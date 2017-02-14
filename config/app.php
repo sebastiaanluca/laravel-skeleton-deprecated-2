@@ -167,7 +167,6 @@ return [
          * Packages
          */
 
-        Laravel\Tinker\TinkerServiceProvider::class,
         GrahamCampbell\Exceptions\ExceptionsServiceProvider::class,
         Spatie\Backup\BackupServiceProvider::class,
         Nwidart\Modules\LaravelModulesServiceProvider::class,
@@ -196,6 +195,7 @@ return [
 
     'local_providers' => [
 
+        Laravel\Tinker\TinkerServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         GuzzleHttp\Profiling\Debugbar\Support\Laravel\ServiceProvider::class,
