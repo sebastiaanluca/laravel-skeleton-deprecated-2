@@ -77,14 +77,6 @@ clean up old releases
 display completed message
 @endstory
 
-@story('backup')
-back up current release
-@endstory
-
-@story('seed')
-seed current release
-@endstory
-
 {{-- Tasks --}}
 
 @task('initialize remote', ['on' => 'remote'])

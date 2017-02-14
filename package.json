@@ -72,7 +72,7 @@
         "serve": "gulp serve",
         "envoy": "vendor/bin/envoy",
         "deploy": "vendor/bin/envoy run deploy",
-        "seed-production": "vendor/bin/envoy run seed",
-        "backup-production": "vendor/bin/envoy run backup"
+        "seed-production": "vendor/bin/envoy run 'seed current release'",
+        "backup-production": "vendor/bin/envoy run 'back up current release'"
     }
 }
