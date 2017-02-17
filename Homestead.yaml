@@ -1,8 +1,7 @@
 ---
 name: laravel-skeleton
-hostname: skeleton.laravel.dev
+hostname: dev1.skeleton.dev
 provider: virtualbox
-mariadb: true
 memory: 4096
 cpus: 4
 ip: "192.168.20.x"
@@ -16,9 +15,14 @@ folders:
     - map: ""
       to: "/vagrant"
 
+sites:
+    - map: '~^(?<subdomain>.+)\.skeleton.dev$'
+      to: "/vagrant/public"
+
 databases:
     - laravel-skeleton
 
 ports:
+    # Mailhog
     - send: 8025
       to: 8025
