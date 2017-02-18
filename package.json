@@ -49,12 +49,9 @@
         "webpack-manifest-plugin": "^1.1.0"
     },
     "scripts": {
-        "init-vm": "vagrant up && vagrant reload && vagrant ssh",
+        "init-vm": "composer install && vagrant up && vagrant reload && vagrant ssh",
         "vm": "vagrant up && vagrant ssh",
         "mailhog": "open http://localhost:8025/",
-        "lockfile": "composer update nothing",
-        "composer-outdated": "composer outdated --direct",
-        "dump": "composer dumpautoload",
         "optimize": "composer run-script post-update-cmd",
         "autocomplete": "php artisan ide-helper:generate; php artisan ide-helper:meta; php artisan ide-helper:models --nowrite",
         "clear-queue": "php artisan queue:clear",
