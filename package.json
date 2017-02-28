@@ -49,7 +49,7 @@
         "webpack-manifest-plugin": "^1.1.0"
     },
     "scripts": {
-        "init-vm": "composer install && vagrant up && vagrant reload && vagrant ssh",
+        "init-vm": "composer install && rm -rf node_modules && yarn && yarn run build && vagrant up && vagrant reload && vagrant ssh",
         "vm": "vagrant up && vagrant ssh",
         "mailhog": "open http://localhost:8025/",
         "optimize": "composer run-script post-update-cmd",
