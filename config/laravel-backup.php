@@ -88,7 +88,7 @@ return [
         'notifiable' => \Spatie\Backup\Notifications\Notifiable::class,
 
         'mail' => [
-            'to' => env('BACKUP_MAIL_TO_ADDRESS'),
+            'to' => env('NOTIFICATIONS_MAIL_TO_ADDRESS'),
         ],
 
         'slack' => [
@@ -144,7 +144,7 @@ return [
             /*
              * The number of days for which daily backups must be kept.
              */
-            'keepDailyBackupsForDays' => 3,
+            'keepDailyBackupsForDays' => 2,
 
             /*
              * The number of weeks for which one weekly backup must be kept.
