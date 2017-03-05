@@ -55,11 +55,11 @@ function logCompletedTask($message) {
 {{-- Stories --}}
 
 @story('deploy')
-back up current release
 initialize remote
 update permissions
 initialize log file
 verify configuration
+back up current release
 clone
 configure
 set release permissions
