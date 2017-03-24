@@ -38,6 +38,7 @@
         "mockery/mockery": "^0.9.8",
         "phpunit/phpunit": "^6",
         "raveren/kint": "^1",
+        "spatie/laravel-db-snapshots": "^1.0",
         "symfony/css-selector": "^3.2",
         "symfony/dom-crawler": "^3.2"
     },

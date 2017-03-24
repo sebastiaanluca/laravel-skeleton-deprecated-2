@@ -3,8 +3,6 @@
 namespace App\Console;
 
 use App\Console\Commands\ClearQueue;
-use App\Console\Commands\DumpMySqlDatabases;
-use App\Console\Commands\ImportMySqlDump;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -17,8 +15,6 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         ClearQueue::class,
-        DumpMySqlDatabases::class,
-        ImportMySqlDump::class,
     ];
 
     /**

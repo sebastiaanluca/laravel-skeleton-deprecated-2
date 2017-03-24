@@ -177,12 +177,6 @@ return [
         SebastiaanLuca\Helpers\Html\HtmlServiceProvider::class,
 
         /*
-         * Modules
-         */
-
-        //
-
-        /*
          * Application
          */
 
@@ -199,6 +193,7 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         GuzzleHttp\Profiling\Debugbar\Support\Laravel\ServiceProvider::class,
+        Spatie\DbSnapshots\DbSnapshotsServiceProvider::class,
 
     ],
 
