@@ -63,7 +63,7 @@
             "php artisan key:generate"
         ],
         "post-install-cmd": [
-            "php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            ". scripts/vm/setup/env.sh",
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
             "composer dumpautoload -o",
             "php artisan optimize"
