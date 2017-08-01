@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => 'local',
+    'default' => env('FILESYSTEM_DRIVER', 'local'),
 
     /*
     |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'cloud' => 's3',
+    'cloud' => env('FILESYSTEM_CLOUD', 's3'),
 
     /*
     |--------------------------------------------------------------------------
@@ -48,14 +48,12 @@ return [
             'root' => storage_path('app'),
         ],
 
-        'local-backups' => [
+        /*
+         * For laravel-db-snapshots
+         */
+        'snapshots' => [
             'driver' => 'local',
-            'root' => storage_path('app/backups'),
-        ],
-
-        'database-snapshots' => [
-            'driver' => 'local',
-            'root' => storage_path('database-snapshots'),
+            'root' => storage_path('database/snapshots'),
         ],
 
         'public' => [
@@ -73,10 +71,19 @@ return [
             'bucket' => env('AWS_BUCKET'),
         ],
 
+        'minio' => [
+            'driver' => 's3',
+            'endpoint' => env('APP_URL', 'http://127.0.0.1') . ':9100',
+            'use_path_style_endpoint' => true,
+            'key' => env('AWS_KEY'),
+            'secret' => env('AWS_SECRET'),
+            'region' => env('AWS_REGION'),
+            'bucket' => env('AWS_BUCKET'),
+        ],
+
         'dropbox' => [
             'driver' => 'dropbox',
-            'access_token' => env('DROPBOX_ACCESS_TOKEN'),
-            'app_secret' => env('DROPBOX_APP_SECRET'),
+            'authorization_token' => env('DROPBOX_AUTHORIZATION_TOKEN'),
         ],
 
     ],

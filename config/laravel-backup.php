@@ -34,7 +34,7 @@ return [
                 /*
                  * Determines if symlinks should be followed.
                  */
-                'followLinks' => true,
+                'followLinks' => false,
             ],
 
             /*
@@ -58,7 +58,7 @@ return [
              */
             'disks' => [
                 'local-backups',
-                // 'dropbox',
+                'dropbox',
             ],
         ],
     ],
@@ -88,7 +88,7 @@ return [
         'notifiable' => \Spatie\Backup\Notifications\Notifiable::class,
 
         'mail' => [
-            'to' => env('NOTIFICATIONS_MAIL_TO_ADDRESS'),
+            'to' => env('MAIL_NOTIFICATIONS_TO_ADDRESS'),
         ],
 
         'slack' => [
@@ -106,7 +106,7 @@ return [
             'name' => env('APP_SLUG'),
             'disks' => [
                 'local-backups',
-                // 'dropbox',
+                'dropbox',
             ],
             'newestBackupsShouldNotBeOlderThanDays' => 7,
             'storageUsedMayNotBeHigherThanMegabytes' => 50,

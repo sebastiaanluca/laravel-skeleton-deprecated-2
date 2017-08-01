@@ -1,0 +1,9 @@
+{
+    "version": "16",
+    "credential": {
+        "accessKey": "mex6EuHc4YeHnBIZdG88",
+        "secretKey": "ko5Th9UrJXv746HBc5cPnIXX1qEL4ltbxmSCkCSS"
+    },
+    "region": "eu-west-1",
+    "browser": "on"
+}

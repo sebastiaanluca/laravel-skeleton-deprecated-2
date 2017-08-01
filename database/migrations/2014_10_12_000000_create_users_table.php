@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Schema\Blueprint;
-use SebastiaanLuca\Migrations\Migration;
+use SebastiaanLuca\Migrations\TransactionalMigration;
 
-class CreateUsersTable extends Migration
+class CreateUsersTable extends TransactionalMigration
 {
     /**
      * Execute the migration.
@@ -12,10 +12,12 @@ class CreateUsersTable extends Migration
     {
         $this->schema->create('users', function (Blueprint $table) {
             $table->increments('id');
+
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();
+
             $table->timestamps();
         });
     }

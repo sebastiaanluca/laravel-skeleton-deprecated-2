@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Schema\Blueprint;
-use SebastiaanLuca\Migrations\Migration;
+use SebastiaanLuca\Migrations\TransactionalMigration;
 
-class CreatePasswordResetsTable extends Migration
+class CreatePasswordResetsTable extends TransactionalMigration
 {
     /**
      * Execute the migration.
@@ -12,7 +12,9 @@ class CreatePasswordResetsTable extends Migration
     {
         $this->schema->create('password_resets', function (Blueprint $table) {
             $table->string('email')->index();
-            $table->string('token')->index();
+
+            $table->string('token');
+
             $table->timestamp('created_at')->nullable();
         });
     }

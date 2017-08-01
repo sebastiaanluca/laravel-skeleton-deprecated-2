@@ -4,7 +4,7 @@ hostname: dev1.skeleton.dev
 provider: virtualbox
 memory: 4096
 cpus: 4
-ip: "192.168.20.x"
+ip: "192.168.x.x"
 
 authorize: ~/.ssh/id_ed25519.pub
 
@@ -16,13 +16,19 @@ folders:
       to: "/vagrant"
 
 sites:
-    - map: '~^(?<subdomain>.+)\.skeleton.dev$'
+    - map: '~^(?<subdomain>.+)\.skeleton.example$'
       to: "/vagrant/public"
 
 databases:
-    - laravel-skeleton
+    - skeleton
 
-ports:
-    # Mailhog
-    - send: 8025
-      to: 8025
+#ports:
+#    # Mailhog
+#    - send: 8025
+#      to: 8025
+#    # Minio
+#    - send: 9100
+#      to: 9100
+#    # Horizon
+#    - send: 9200
+#      to: 8200

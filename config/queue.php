@@ -36,7 +36,7 @@ return [
 
         'database' => [
             'driver' => 'database',
-            'table' => env('QUEUE_JOBS_TABLE', 'jobs'),
+            'table' => 'jobs',
             'queue' => 'default',
             'retry_after' => 90,
         ],
@@ -59,7 +59,7 @@ return [
 
         'redis' => [
             'driver' => 'redis',
-            'connection' => 'default',
+            'connection' => 'queue',
             'queue' => 'default',
             'retry_after' => 90,
         ],
@@ -79,7 +79,7 @@ return [
 
     'failed' => [
         'database' => env('DB_CONNECTION', 'mysql'),
-        'table' => env('QUEUE_FAILED_JOBS_TABLE', 'failed_jobs'),
+        'table' => 'failed_jobs',
     ],
 
 ];

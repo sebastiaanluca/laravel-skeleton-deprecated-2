@@ -24,12 +24,11 @@ return [
     |--------------------------------------------------------------------------
     |
     | Here you may provide the host address of the SMTP server used by your
-    | applications. A default option is provided that is compatible with
-    | the Mailgun mail service which will provide reliable deliveries.
+    | applications. A default option is provided to use Mailhog.
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', '0.0.0.0'),
 
     /*
     |--------------------------------------------------------------------------
@@ -38,11 +37,11 @@ return [
     |
     | This is the SMTP port used by your application to deliver e-mails to
     | users of the application. Like the host we have set this value to
-    | stay compatible with the Mailgun e-mail application by default.
+    | stay compatible with Mailhog by default.
     |
     */
 
-    'port' => env('MAIL_PORT', 587),
+    'port' => env('MAIL_PORT', 1025),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,8 +55,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'hello@' . env('APP_SLUG', str_slug(env('APP_NAME', 'yals'), '-')) . 'com'),
+        'name' => env('MAIL_FROM_NAME', env('APP_NAME')),
     ],
 
     /*
@@ -84,9 +83,9 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    'username' => env('MAIL_USERNAME', 'testuser'),
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => env('MAIL_PASSWORD', 'testpwd'),
 
     /*
     |--------------------------------------------------------------------------

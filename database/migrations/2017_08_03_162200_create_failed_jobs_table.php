@@ -1,21 +1,23 @@
 <?php
 
 use Illuminate\Database\Schema\Blueprint;
-use SebastiaanLuca\Migrations\Migration;
+use SebastiaanLuca\Migrations\TransactionalMigration;
 
-class CreateFailedJobsTable extends Migration
+class CreateFailedJobsTable extends TransactionalMigration
 {
     /**
      * Execute the migration.
      */
     protected function migrateUp()
     {
-        $this->schema->create('_failed_jobs', function (Blueprint $table) {
-            $table->increments('id');
+        $this->schema->create('failed_jobs', function (Blueprint $table) {
+            $table->bigIncrements('id');
+
             $table->text('connection');
             $table->text('queue');
             $table->longText('payload');
             $table->longText('exception');
+
             $table->timestamp('failed_at')->useCurrent();
         });
     }
@@ -25,6 +27,6 @@ class CreateFailedJobsTable extends Migration
      */
     protected function migrateDown()
     {
-        $this->drop('_failed_jobs');
+        $this->drop('failed_jobs');
     }
 }

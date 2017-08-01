@@ -2,18 +2,12 @@
 
 namespace App\Http;
 
-use SebastiaanLuca\Router\Kernel as HttpKernel;
+use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use SebastiaanLuca\Router\Kernel\RegistersRouters;
 
 class Kernel extends HttpKernel
 {
-    /**
-     * The routers to automatically map.
-     *
-     * @var array
-     */
-    protected $routers = [
-        //
-    ];
+    use RegistersRouters;
 
     /**
      * The application's global HTTP middleware stack.
@@ -27,6 +21,7 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        \App\Http\Middleware\TrustProxies::class,
     ];
 
     /**
@@ -65,5 +60,14 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+    ];
+
+    /**
+     * The routers to automatically map.
+     *
+     * @var array
+     */
+    protected $routers = [
+        //
     ];
 }

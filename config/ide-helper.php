@@ -39,6 +39,9 @@ return [
 
     'helper_files' => [
         base_path() . '/vendor/laravel/framework/src/Illuminate/Support/helpers.php',
+        base_path() . '/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php',
+        base_path() . '/vendor/spatie/laravel-html/src/helpers.php',
+        base_path() . '/vendor/sebastiaanluca/laravel-helpers/src/Methods/helpers.php',
     ],
 
     /*
@@ -66,8 +69,13 @@ return [
     */
 
     'extra' => [
-        'Eloquent' => ['Illuminate\Database\Eloquent\Builder', 'Illuminate\Database\Query\Builder'],
-        'Session' => ['Illuminate\Session\Store'],
+        'Eloquent' => [
+            'Illuminate\Database\Eloquent\Builder',
+            'Illuminate\Database\Query\Builder',
+        ],
+        'Session' => [
+            'Illuminate\Session\Store',
+        ],
     ],
 
     'magic' => [

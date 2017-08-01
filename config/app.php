@@ -12,7 +12,9 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'YALS'),
+
+    'slug' => env('APP_SLUG', str_slug(env('APP_NAME', 'yals'), '-')),
 
     /*
     |--------------------------------------------------------------------------
@@ -51,7 +53,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://localhost'),
 
     /*
     |--------------------------------------------------------------------------
@@ -64,7 +66,7 @@ return [
     |
     */
 
-    'timezone' => 'Europe/Brussels',
+    'timezone' => 'UTC',
 
     /*
     |--------------------------------------------------------------------------
@@ -138,8 +140,9 @@ return [
     'providers' => [
 
         /*
-         * Laravel Framework Service Providers...
+         * Core
          */
+
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
@@ -164,17 +167,11 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
-         * Packages
+         * Third-party
          */
 
-        GrahamCampbell\Exceptions\ExceptionsServiceProvider::class,
-        Spatie\Backup\BackupServiceProvider::class,
-        Nwidart\Modules\LaravelModulesServiceProvider::class,
-        SebastiaanLuca\Router\RouterServiceProvider::class,
-        SebastiaanLuca\ConditionalProviders\Providers\EnvironmentProvidersServiceProvider::class,
-        SebastiaanLuca\Helpers\Methods\GlobalMethodsServiceProvider::class,
-        SebastiaanLuca\Helpers\Collections\CollectionHelperServiceProvider::class,
-        SebastiaanLuca\Helpers\Html\HtmlServiceProvider::class,
+        SebastiaanLuca\Helpers\Collections\CollectionMacrosServiceProvider::class,
+        SebastiaanLuca\Helpers\Methods\GlobalHelpersServiceProvider::class,
 
         /*
          * Application
@@ -182,18 +179,15 @@ return [
 
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        //  App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
+        App\Providers\DropboxServiceProvider::class,
 
     ],
 
     'local_providers' => [
 
-        Laravel\Tinker\TinkerServiceProvider::class,
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
-        GuzzleHttp\Profiling\Debugbar\Support\Laravel\ServiceProvider::class,
-        Spatie\DbSnapshots\DbSnapshotsServiceProvider::class,
+        App\Providers\DebugServiceProvider::class,
+        Clockwork\Support\Laravel\ClockworkServiceProvider::class,
 
     ],
 
@@ -209,6 +203,10 @@ return [
     */
 
     'aliases' => [
+
+        /*
+         * Core
+         */
 
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
@@ -244,8 +242,11 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-        'Form' => Collective\Html\FormFacade::class,
-        'Html' => Collective\Html\HtmlFacade::class,
+        /*
+         * Third-party
+         */
+
+        'Html' => Spatie\Html\Facades\Html::class,
 
     ],
 

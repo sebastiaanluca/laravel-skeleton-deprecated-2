@@ -32,7 +32,7 @@ function logMessage($message, $icon = '', $color = null) {
     if(! empty($icon)) {
         $icon = $icon . '  ';
     }
-    
+
     if($color) {
         $message = "\033[3{$color}m{$message}\033[0m";
     }
@@ -55,11 +55,12 @@ function logCompletedTask($message) {
 {{-- Stories --}}
 
 @story('deploy')
+back up current release
 initialize remote
 update permissions
 initialize log file
 verify configuration
-back up current release
+create project directory
 clone
 configure
 set release permissions
@@ -75,6 +76,14 @@ cache config
 restart queue
 clean up old releases
 display completed message
+@endstory
+
+@story('backup')
+back up current release
+@endstory
+
+@story('seed')
+seed current release
 @endstory
 
 {{-- Tasks --}}
@@ -135,6 +144,12 @@ exit 1; fi
 {{ logCompletedTask('Configuration file found') }}
 @endtask
 
+@task('create project directory', ['on' => 'remote'])
+{{ logTaskStart('Create project directory…') }}
+mkdir -p {{ $newReleaseDirectory }}
+{{ logCompletedTask('Project directory created') }}
+@endtask
+
 @task('clone', ['on' => 'remote'])
 {{ logTaskStart('Cloning the project…') }}
 {{-- Prevent git clone failure when connecting for the first time as it asks to verify the host and a passphrase --}}
@@ -177,9 +192,7 @@ composer install --prefer-dist --no-scripts --no-dev -q -o --no-interaction --no
 @task('optimize project', ['on' => 'remote'])
 {{ logTaskStart('Optimizing project code…') }}
 cd {{ $newReleaseDirectory }}
-php artisan clear-compiled >>{{ $log }} 2>&1
 composer dumpautoload -o >>{{ $log }} 2>&1
-php artisan optimize >>{{ $log }} 2>&1
 {{ logCompletedTask('Project optimized') }}
 @endtask
 
@@ -218,25 +231,18 @@ php artisan cache:clear >>{{ $log }} 2>&1
 php artisan view:clear >>{{ $log }} 2>&1
 
 # Clear opcache, etc.
-#sudo service php7.1-fpm reload >>{{ $log }} 2>&1
-#sudo service nginx reload >>{{ $log }} 2>&1
+sudo service php7.1-fpm reload >>{{ $log }} 2>&1
+sudo service nginx reload >>{{ $log }} 2>&1
 {{ logCompletedTask('Cache cleared') }}
 @endtask
 
 @task('cache config', ['on' => 'remote'])
-{{ logTaskStart('Cache configuration and routes…') }}
+{{ logTaskStart('Caching configuration and routes…') }}
 cd {{ $currentDirectory }}
 
 php artisan config:cache >>{{ $log }} 2>&1
 php artisan route:cache >>{{ $log }} 2>&1
 {{ logCompletedTask('Configuration and routes cached') }}
-@endtask
-
-@task('restart queue', ['on' => 'remote'])
-{{ logTaskStart('Restarting the queue…') }}
-cd {{ $currentDirectory }}
-php artisan queue:restart >>{{ $log }} 2>&1
-{{ logCompletedTask('Queue restarted') }}
 @endtask
 
 @task('clean up old releases', ['on' => 'remote'])

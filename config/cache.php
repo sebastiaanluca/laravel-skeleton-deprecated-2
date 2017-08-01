@@ -86,6 +86,6 @@ return [
     |
     */
 
-    'prefix' => 'laravel_skeleton',
+    'prefix' => env('APP_SLUG', 'laravel'),
 
 ];
