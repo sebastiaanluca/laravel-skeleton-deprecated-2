@@ -3,7 +3,12 @@
 /public/storage
 /public/assets/styles
 /public/assets/scripts
+/public/assets/fonts
+/public/fonts
+/public/assets/mix-manifest.json
+/public/mix-manifest.json
 /storage/*.key
+/storage/clockwork/
 /vendor
 /.idea
 /.vagrant

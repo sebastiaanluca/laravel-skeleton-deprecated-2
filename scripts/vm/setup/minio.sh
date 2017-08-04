@@ -2,12 +2,26 @@
 
 echo ">> Installing and setting up Minio local S3 server"
 
-wget -0 /usr/bin/minio https://dl.minio.io/server/minio/release/linux-amd64/minio
+# Server
 
-chmod +x /usr/bin/minio
-cp -v /vagrant/scripts/vm/config/minio/minio.json ~/.minio/config.json
+sudo wget -O /usr/bin/minio https://dl.minio.io/server/minio/release/linux-amd64/minio --no-verbose
+sudo chmod +x /usr/bin/minio
 
-ln -nfs /vagrant/scripts/vm/config/minio/supervisord /etc/supervisor/conf.d/minio.conf
+mkdir -p ~/.minio
+ln -nfs /vagrant/scripts/vm/config/minio/config.json ~/.minio/config.json
 
-supervisorctl reread
-supervisorctl reread
+sudo ln -nfs /vagrant/scripts/vm/config/minio/supervisord.conf /etc/supervisor/conf.d/minio.conf
+sudo supervisorctl reread
+sudo supervisorctl update
+
+# Client
+
+sudo wget -O /usr/bin/mc https://dl.minio.io/client/mc/release/linux-amd64/mc --no-verbose
+sudo chmod +x /usr/bin/mc
+
+mkdir -p ~/.mc
+ln -nfs /vagrant/scripts/vm/config/mc/config.json ~/.mc/config.json
+
+# Create a default bucket on our minio S3 storage server
+
+mc mb -p local/default

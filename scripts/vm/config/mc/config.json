@@ -1,0 +1,23 @@
+{
+    "version": "8",
+    "hosts": {
+        "gcs": {
+            "url": "https://storage.googleapis.com",
+            "accessKey": "YOUR-ACCESS-KEY-HERE",
+            "secretKey": "YOUR-SECRET-KEY-HERE",
+            "api": "S3v2"
+        },
+        "local": {
+            "url": "http://localhost:9100",
+            "accessKey": "mex6EuHc4YeHnBIZdG88",
+            "secretKey": "ko5Th9UrJXv746HBc5cPnIXX1qEL4ltbxmSCkCSS",
+            "api": "S3v4"
+        },
+        "s3": {
+            "url": "https://s3.amazonaws.com",
+            "accessKey": "YOUR-ACCESS-KEY-HERE",
+            "secretKey": "YOUR-SECRET-KEY-HERE",
+            "api": "S3v4"
+        }
+    }
+}

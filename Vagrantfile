@@ -5,14 +5,14 @@ require 'json'
 require 'yaml'
 
 VAGRANTFILE_API_VERSION ||= "2"
-confDir = $confDir ||= File.expand_path(File.dirname(__FILE__))
+confDir = $confDir ||= File.expand_path("vendor/laravel/homestead", File.dirname(__FILE__))
 
-homesteadYamlPath = confDir + "/Homestead.yaml"
-homesteadJsonPath = confDir + "/Homestead.json"
+homesteadYamlPath = File.expand_path("Homestead.yaml", File.dirname(__FILE__))
+homesteadJsonPath = File.expand_path("Homestead.json", File.dirname(__FILE__))
 afterScriptPath = "scripts/vm/provision.sh"
 aliasesPath = "scripts/vm/aliases.sh"
 
-require File.expand_path(File.dirname(__FILE__) + '/scripts/homestead.rb')
+require File.expand_path(confDir + '/scripts/homestead.rb')
 
 Vagrant.require_version '>= 1.9.0'
 
