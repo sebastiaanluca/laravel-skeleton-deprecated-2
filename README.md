@@ -24,7 +24,7 @@ Laravel Homestead vagrant box with:
 - Kibana (Elasticsearch GUI) (disabled by default)
 - Minio (local S3 storage server)
 - Mailhog (local mail catcher)
-- Byobu (advanced tmux/screen for CLI window management)
+- Byobu (advanced tmux/screen CLI window management)
 - Prestissimo (parallel composer requests)
 
 And:
@@ -98,7 +98,7 @@ Navigate to [http://www.skeleton.example:8025]() on your local machine.
 
 Navigate to [http://www.skeleton.example:9100]() on your local machine.
 
-Minio uses the `storage/app/minio/default` directory as default bucket storage path.
+Minio uses the `storage/minio/default` directory as default bucket storage path.
 
 #### Horizon
 
