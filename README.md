@@ -4,14 +4,13 @@ Aka __yet another Laravel skeleton__ (app).
 
 ## Features
 
+- Laravel 5.5 and PHP 7.1
 - Single command initialization
-- All most common dev tech included
+- Fully provisioned Homestead vagrant VM
+- All most common dev tech and services included
+- No-downtime Envoy script to immediately deploy to production
 - Ready-to-go production backups using spatie/laravel-backup
-
-### Laravel
-
-- PHP 7.1
-- Laravel 5.5
+- And much more!
 
 ### Virtual machine
 
@@ -58,6 +57,7 @@ Executed using Yarn commands.
 
 - Supervisord production config template for Horizon
 - Stripped all routes files in favor of [routers](https://www.github.com/sebastiaanluca/laravel-router)
+- Encouraged to use nwidart/laravel-modules to group your features together
 - Dropbox filesystem support
 
 ## How to use
@@ -88,14 +88,18 @@ Profit!
 
 #### Mailhog
 
-Navigate to (http://www.skeleton.example:8025)[] on your local machine.
+![Mailhog interface](docs/mailhog.png)
+
+Navigate to [http://www.skeleton.example:8025]() on your local machine.
 
 #### Minio
 
-Navigate to (http://www.skeleton.example:9100)[] on your local machine.
+![Minio interface](docs/minio.png)
 
-Minio uses the `storage/app/minio/default` directory as default bucket.
+Navigate to [http://www.skeleton.example:9100]() on your local machine.
+
+Minio uses the `storage/app/minio/default` directory as default bucket storage path.
 
 #### Horizon
 
-Navigate to (http://www.skeleton.example/horizon)[] on your local machine.
+Navigate to [http://www.skeleton.example/horizon]() on your local machine.

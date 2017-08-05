@@ -22,6 +22,8 @@ sudo chmod +x /usr/bin/mc
 mkdir -p ~/.mc
 ln -nfs /vagrant/scripts/vm/config/mc/config.json ~/.mc/config.json
 
-# Create a default bucket on our minio S3 storage server
+# Create a default bucket on our minio S3 storage server and
+# allow viewing files, but disable listing entire directories
 
 mc mb -p local/default
+mc policy download local/default/*
