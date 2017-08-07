@@ -13,7 +13,6 @@ ln -nfs /vagrant/scripts/vm/config/minio/config.json ~/.minio/config.json
 sudo ln -nfs /vagrant/scripts/vm/config/minio/supervisord.conf /etc/supervisor/conf.d/minio.conf
 sudo supervisorctl reread
 sudo supervisorctl update
-sudo supervisorctl start minio
 
 # Client
 

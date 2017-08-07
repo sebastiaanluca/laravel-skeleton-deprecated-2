@@ -103,3 +103,11 @@ Minio uses the `storage/minio/default` directory as default bucket storage path.
 #### Horizon
 
 Navigate to [http://www.skeleton.example/horizon]() on your local machine.
+
+### Resource scaffolding
+
+1. Create a module
+2. Add its namespace to `composer.json`
+3. Add its tests directories to `phpunit.xml`
+4. Scaffold a resource
+5. Register its router by adding it to the app HTTP kernel or the service provider routers array

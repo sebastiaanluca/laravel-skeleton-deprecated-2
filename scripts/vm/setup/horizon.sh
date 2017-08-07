@@ -6,4 +6,3 @@ sudo ln -nfs /vagrant/scripts/vm/config/horizon/supervisord.conf /etc/supervisor
 
 sudo supervisorctl reread
 sudo supervisorctl update
-sudo supervisorctl start horizon
