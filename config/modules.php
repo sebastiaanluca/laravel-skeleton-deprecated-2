@@ -54,6 +54,10 @@ return [
             'views/master' => ['STUDLY_NAME'],
         ],
 
+        'resources' => [
+            'provider' => 'src/Providers',
+        ],
+
     ],
 
     'paths' => [
@@ -80,14 +84,9 @@ return [
         */
 
         'generator' => [
-            'config' => 'config',
-            'assets' => 'resources/assets',
-            'views' => 'resources/views',
+            'styles' => 'resources/assets/styles',
+            'scripts' => 'resources/assets/scripts',
             'lang' => 'resources/translations',
-
-            'provider' => 'src/Providers',
-
-            'test' => 'tests',
             'test/feature' => 'tests/Feature',
             'test/unit' => 'tests/Unit',
         ],

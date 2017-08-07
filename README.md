@@ -106,8 +106,8 @@ Navigate to [http://www.skeleton.example/horizon]() on your local machine.
 
 ### Resource scaffolding
 
-1. Create a module
-2. Add its namespace to `composer.json`
+1. Create a module: `php artisan module:make Projects`
+2. Add its namespace to `composer.json` (both PSR-4 autoload and autoload-dev for tests)
 3. Add its tests directories to `phpunit.xml`
 4. Scaffold a resource
 5. Register its router by adding it to the app HTTP kernel or the service provider routers array
