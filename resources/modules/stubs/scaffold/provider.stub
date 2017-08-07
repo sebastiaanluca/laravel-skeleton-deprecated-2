@@ -1,0 +1,9 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use SebastiaanLuca\Flow\Providers\ModuleProvider;
+
+class $CLASS$ extends ModuleProvider
+{
+}
