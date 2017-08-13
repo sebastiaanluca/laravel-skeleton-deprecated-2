@@ -51,7 +51,7 @@ return [
         /*
          * For laravel-db-snapshots
          */
-        'snapshots' => [
+        'database-snapshots' => [
             'driver' => 'local',
             'root' => storage_path('database/snapshots'),
         ],
