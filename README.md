@@ -64,7 +64,7 @@ Executed using Yarn commands.
 
 ### First run
 
-Adjust `Homestead.yaml` in the root directory to your liking.
+Adjust `Homestead.yaml` in the root directory to your liking. Then update `.env` so it resembles your Homestead VM configuration (think database and app URL).
 
 Open a terminal and edit your `/etc/hosts` file using `sudo nano /etc/hosts`. Add the following (replace with your domain and used IP):
 
