@@ -22,7 +22,7 @@
         "restart-horizon": "php artisan horizon:terminate",
         "mailhog": "open http://localhost:8025/",
         "minio": "open http://localhost:9100/",
-        "horizon": "open http://localhost:9200/",
+        "horizon": "open http://www.skeleton.example/horizon",
         "dev": "npm run development",
         "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
         "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
