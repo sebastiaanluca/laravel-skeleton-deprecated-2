@@ -14,7 +14,7 @@
     "scripts": {
         "init-vm": "rm -rf vendor/ node_modules/ && composer install && yarn && yarn run dev && vagrant up && vagrant reload && vagrant ssh",
         "vm": "vagrant up && vagrant ssh",
-        "optimize": "composer run-script post-update-cmd",
+        "optimize": "composer dumpautoload -a && composer run-script post-update-cmd",
         "autocomplete": "php artisan ide-helper:generate; php artisan ide-helper:meta; php artisan ide-helper:models --nowrite",
         "rebuild-database": "php artisan migrate:fresh --seed",
         "seed": "php artisan db:seed --class=\"ProductionSeeder\"",
