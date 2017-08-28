@@ -36,6 +36,10 @@ alias arti='artisan'
 alias pa='artisan'
 alias phpa='artisan'
 
+alias acc='php artisan cache:clear'
+alias clearcache='acc'
+alias fresh='php artisan migrate:fresh --seed'
+
 alias y='yarn'
 alias yr='yarn run'
 
@@ -59,6 +63,7 @@ alias ip='curl icanhazip.com'
 alias ports='netstat -tulanp'
 alias reset-network='sudo service network-manager restart'
 
+alias stats='gtop'
 alias meminfo='free -m -l -t'
 alias memtop10='ps auxf | sort -nr -k 4 | head -10'
 alias cputop10='ps auxf | sort -nr -k 3 | head -10'
